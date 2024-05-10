@@ -10,7 +10,7 @@ function Viewer() {
     <Canvas camera={{ position: [2, 2, 2], fov: 30 }} style={{ width: '100vw', height: '100vh', backgroundColor: 'gray' }} >
       <ambientLight intensity={0.5} />
       <directionalLight position={[0, 10, 0]} />
-      <GLTFLoaderComponent url='r3f-ifc-test/assets/models/gltf/ABeautifulGame/glTF/ABeautifulGame.gltf'/>
+      <GLTFLoaderComponent url='assets/models/gltf/ABeautifulGame/glTF/ABeautifulGame.gltf'/>
       <OrbitControls />
     </Canvas>
   );
