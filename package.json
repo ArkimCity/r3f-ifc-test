@@ -2,6 +2,7 @@
   "name": "r3f-ifc-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/r3f-ifc-test",
   "engines": {
     "node": "20.13.1"
   },
