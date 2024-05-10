@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // 기타 필요한 설정 추가
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
