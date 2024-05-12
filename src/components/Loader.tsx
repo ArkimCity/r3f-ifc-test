@@ -12,12 +12,15 @@ interface GLTFLoaderComponentProps {
 
 // FIXME: IFCLoaderComponent not working
 export function IFCLoaderComponent({ url }) {
-  const ifcLoader = new IFCLoader();
   const modelRef = useRef<Group>();
 
   useEffect(() => {
+    const ifcLoader = new IFCLoader();
+
     // Set up IFC loader and load the file
-    ifcLoader.ifcManager.setWasmPath("https://unpkg.com/web-ifc@0.0.27/wasm/");
+    const wasmPath = "https://unpkg.com/web-ifc@0.0.53/web-ifc.wasm"
+    ifcLoader.ifcManager.setWasmPath(wasmPath);
+
     ifcLoader.load(url, (ifcModel) => {
       if (modelRef.current) {
         modelRef.current.add(ifcModel);
@@ -28,7 +31,7 @@ export function IFCLoaderComponent({ url }) {
       // Clean up the loader and scene
       ifcLoader.ifcManager.dispose();
     };
-  }, [url, ifcLoader]);
+  }, [url]);
 
   return <group ref={modelRef} />;
 }
