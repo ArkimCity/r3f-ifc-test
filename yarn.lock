@@ -9793,13 +9793,18 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-web-ifc-three@^0.0.126:
+web-ifc-three@0.0.126:
   version "0.0.126"
   resolved "https://registry.yarnpkg.com/web-ifc-three/-/web-ifc-three-0.0.126.tgz#407ca578ac0064897515fe805927ebe56f15c72b"
   integrity sha512-P2/jcuSZvpLnGiLcd1H+8N01oWuyIjmU5zUy/rzx8HTrbJn7FCE6uC4SFJyYvmxwN6+uFCRmEvzHkfHrdJzpcQ==
   dependencies:
     three-mesh-bvh "0.5.21"
     web-ifc "^0.0.39"
+
+web-ifc@0.0.36:
+  version "0.0.36"
+  resolved "https://registry.yarnpkg.com/web-ifc/-/web-ifc-0.0.36.tgz#205de7d3ad74916bf837bf72bdf76e18d9712571"
+  integrity sha512-1C3h8Qf7TpEByJTpTt/yzZbnAuByH0hEEfOiVQho83Y6lKNCDWe/0cKObExZMAi2XMDIiES6cYL43PsQ3rHo2A==
 
 web-ifc@^0.0.39:
   version "0.0.39"

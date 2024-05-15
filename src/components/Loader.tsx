@@ -15,22 +15,28 @@ export function IFCLoaderComponent({ url }) {
   const modelRef = useRef<Group>();
 
   useEffect(() => {
-    const ifcLoader = new IFCLoader();
+    const init = async () => {
+      const ifcLoader = new IFCLoader();
 
-    // Set up IFC loader and load the file
-    const wasmPath = "https://unpkg.com/web-ifc@0.0.53/web-ifc.wasm"
-    ifcLoader.ifcManager.setWasmPath(wasmPath);
+      await ifcLoader.ifcManager.setWasmPath( 'https://cdn.jsdelivr.net/npm/web-ifc@0.0.36/', true );
 
-    ifcLoader.load(url, (ifcModel) => {
-      if (modelRef.current) {
-        modelRef.current.add(ifcModel);
-      }
-    });
+      await ifcLoader.ifcManager.applyWebIfcConfig( {
+        USE_FAST_BOOLS: true
+      } );
 
-    return () => {
-      // Clean up the loader and scene
-      ifcLoader.ifcManager.dispose();
-    };
+      ifcLoader.load(url, (ifcModel) => {
+        if (modelRef.current) {
+          modelRef.current.add(ifcModel);
+        }
+      });
+
+      return () => {
+        // Clean up the loader and scene
+        ifcLoader.ifcManager.dispose();
+      };
+    }
+
+    init();
   }, [url]);
 
   return <group ref={modelRef} />;
