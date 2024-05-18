@@ -6,20 +6,18 @@ import { GLTFLoaderComponent, IFCLoaderComponent } from './Loader';
 
 
 function Viewer() {
-  const modelPath = process.env.NODE_ENV === 'production'
-  ? 'assets/models/gltf/ABeautifulGame/glTF/ABeautifulGame.gltf'
-  : 'r3f-ifc-test/assets/models/gltf/ABeautifulGame/glTF/ABeautifulGame.gltf';
+  const urlPrefix = process.env.NODE_ENV  === 'production' ? "" : "r3f-ifc-test/";
 
-  const ifcModelPath = process.env.NODE_ENV === 'production'
-  ? 'assets/models/ifc/model.ifc'
-  : 'r3f-ifc-test/assets/models/ifc/model.ifc';
+  const modelPath = urlPrefix + 'assets/models/gltf/ABeautifulGame/glTF/ABeautifulGame.gltf';
+  const ifcModelPath = urlPrefix + 'assets/models/ifc/model.ifc';
+  const wasmPath = '../../../' + urlPrefix + 'assets/'
 
   return (
     <Canvas camera={{ position: [2, 2, 2], fov: 30 }} style={{ width: '100vw', height: '100vh', backgroundColor: 'gray' }} >
       <ambientLight intensity={0.5} />
       <directionalLight position={[0, 10, 0]} />
       <GLTFLoaderComponent url={modelPath}/>
-      <IFCLoaderComponent url={ifcModelPath}/>
+      <IFCLoaderComponent url={ifcModelPath} wasmPath={wasmPath}/>
       <OrbitControls />
     </Canvas>
   );
