@@ -3,7 +3,7 @@ import { Group } from "three";
 import React from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { IFCLoader } from "three/examples/jsm/loaders/IFCLoader";
+import { IFCLoader } from "web-ifc-three";
 
 interface GLTFLoaderComponentProps {
   url: string;
@@ -18,7 +18,7 @@ export function IFCLoaderComponent({ url }) {
     const init = async () => {
       const ifcLoader = new IFCLoader();
 
-      await ifcLoader.ifcManager.setWasmPath( 'https://cdn.jsdelivr.net/npm/web-ifc@0.0.36/', true );
+      await ifcLoader.ifcManager.setWasmPath( 'https://cdn.jsdelivr.net/npm/web-ifc@0.0.36/' );
 
       await ifcLoader.ifcManager.applyWebIfcConfig( {
         USE_FAST_BOOLS: true
